@@ -19717,19 +19717,19 @@ module.exports = List;
 var React = require('react');
 
 var ListItem = React.createClass({
-  displayName: 'ListItem',
+    displayName: 'ListItem',
 
-  render: function () {
-    return React.createElement(
-      'li',
-      null,
-      React.createElement(
-        'h4',
-        null,
-        this.prop.text
-      )
-    );
-  }
+    render: function () {
+        return React.createElement(
+            'li',
+            null,
+            React.createElement(
+                'h4',
+                null,
+                this.props.text
+            )
+        );
+    }
 });
 
 module.exports = ListItem;
@@ -19743,14 +19743,13 @@ var ListManager = React.createClass({
 
 
     getInitialState: function () {
-        return { item: [], newItemText: '' };
+        return { items: [], newItemText: '' };
     },
-
     onChange: function (e) {
         this.setState({ newItemText: e.target.value });
     },
 
-    handleSumbit: function (e) {
+    handleSubmit: function (e) {
         e.preventDefault();
 
         var currentItems = this.state.items;
@@ -19759,7 +19758,6 @@ var ListManager = React.createClass({
 
         this.setState({ items: currentItems, newItemText: '' });
     },
-
     render: function () {
         return React.createElement(
             'div',
@@ -19769,7 +19767,6 @@ var ListManager = React.createClass({
                 null,
                 this.props.title
             ),
-            ';',
             React.createElement(
                 'form',
                 { onSubmit: this.handleSubmit },
@@ -19789,9 +19786,9 @@ module.exports = ListManager;
 
 },{"./List.jsx":168,"react":166}],171:[function(require,module,exports){
 var React = require('react');
-var ReactDom = require('react-dom');
+var ReactDOM = require('react-dom');
 var ListManager = require('./components/ListManager.jsx');
 
-ReactDom.render(React.createElement(ListManager, { title: 'Ingredients' }), document.getElementById('app'));
+ReactDOM.render(React.createElement(ListManager, { title: 'Ingredients' }), document.getElementById('app'));
 
 },{"./components/ListManager.jsx":170,"react":166,"react-dom":1}]},{},[171]);
